@@ -1,0 +1,12 @@
+# This is a comment.
+# Each line is a file pattern followed by one or more owners.
+# Default owner for everything, a later match takes precedence
+* @EddwaardHaar 
+# Order is important, the last match takes precedence over the previous match
+# you can also use email address instead of username 
+# When someone opens a pull request on php files, only the following owner will be requested for a review 
+*.php pharcar7@r@gmail.com
+# you can also speficy ownership for a specific directory & its sub directories.
+/docs @dipaish
+
+#Read More on CODEOWNERS at this link: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners 
