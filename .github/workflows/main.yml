@@ -29,17 +29,20 @@ jobs: # The jobs that run in this workflow
            Thanks for opening this issue! We'll take a look as soon as possible.
 
 # Comment on when an issue is closed
-  closed_comment_issues: 
-    runs-on: ubuntu-latest 
-    permissions: 
+  comment_on_closed_issue:
+    runs-on: ubuntu-latest
+    permissions:
       issues: write
-    if: github.event_name == 'issues' && github.event.action == 'closed'
-    steps: 
-    - name: Comment on issue close
-      uses: peter-evans/create-or-update-comment@v1
-      with:
-        issuse-number:  ${{ github.event.issue.number }}
-        body: |
-          The issue is now resolved.
-
+    steps:
+      - name: Comment on closed issue
+        if: github.event_name == 'issues' && github.event.action == 'closed'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "The issue is now resolved"
+            })
 # Comment on when an users opens the first pull request 
