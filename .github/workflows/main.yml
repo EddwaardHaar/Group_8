@@ -34,12 +34,11 @@ jobs: # The jobs that run in this workflow
         uses: actions/github-script@v6
         with:
           script: |
-            const issueComment = 'The issue is now resolved.';
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: issueComment
+              body: "The issue is now resolved"
             })
 
 # Comment on when an users opens the first pull request 
