@@ -52,7 +52,7 @@ jobs: # The jobs that run in this workflow
       issues: write
     steps:
       - name: Comment on first pull request
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 1
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 44
         uses: actions/github-script@v6
         with:
           script: |
