@@ -36,14 +36,8 @@ jobs: # The jobs that run in this workflow
     steps: 
     - name: Comment on issue close
       if: github.event_name == 'issues' && github.event.action == 'closed'
-      uses: actions/github-script@v6
+      uses: peter-evans/create-or-update-comment@v1
       with:
-        script: |
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-          })
         issuse-number:  ${{ github.event.issue.number }}
         body: |
           The issue is now resolved.
