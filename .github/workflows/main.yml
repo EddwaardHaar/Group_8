@@ -7,10 +7,7 @@ on: # This action will trigger when an issue is reopened or opened.
       - closed
   pull_request:
     types:
-      - reopened
       - opened
-    branches:
-      - main
 jobs: # The jobs that run in this workflow
   label_issues: # the first job is named as label_issues
     runs-on: ubuntu-latest # This job will run on the latest version of Ubuntu.
@@ -55,7 +52,7 @@ jobs: # The jobs that run in this workflow
   comment_on_first_pull_request_issue:
     runs-on: ubuntu-latest
     permissions:
-      issues: write
+      pull-requests: write
     steps:
       - name: Comment on first pull request
         if: github.event_name == 'pull_request' && github.event.pull_request.number != 1
