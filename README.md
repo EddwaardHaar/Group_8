@@ -1,4 +1,4 @@
 # Bitti-Itsari
 
 
-commit
+commit test repo rules
