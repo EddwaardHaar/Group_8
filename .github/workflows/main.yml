@@ -5,6 +5,12 @@ on: # This action will trigger when an issue is reopened or opened.
       - reopened
       - opened
       - closed
+  pull_request:
+    types:
+      - reopened
+      - opened
+    branches:
+      - main
 jobs: # The jobs that run in this workflow
   label_issues: # the first job is named as label_issues
     runs-on: ubuntu-latest # This job will run on the latest version of Ubuntu.
